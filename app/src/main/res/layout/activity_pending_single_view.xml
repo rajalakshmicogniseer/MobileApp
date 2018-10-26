@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/side_nav_bar"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <!--<android.support.v7.widget.AppCompatImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:padding="@dimen/text5"-->
+            <!--android:src="@drawable/dashboardl" />-->
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <!-- TODO: Update blank fragment layout -->
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/text15"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text15"
+                    app:contentPadding="@dimen/text12"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/text5"
+                    app:cardElevation="6dp">
+
+                    <LinearLayout
+                        android:id="@+id/itemclick"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="5"
+                            android:gravity="start"
+                            android:orientation="vertical"
+                            android:padding="@dimen/text6">
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/txtname"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/text_title"
+                                android:textSize="@dimen/texts16" />
+
+                            <!--<android.support.v7.widget.AppCompatTextView-->
+                                <!--android:id="@+id/txtroles"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_marginTop="@dimen/text10"-->
+                                <!--android:fontFamily="@font/montserrat_regular"-->
+                                <!--android:textColor="@color/text_title"-->
+                                <!--android:textSize="@dimen/texts13" />-->
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="5"
+                            android:gravity="start"
+                            android:orientation="vertical"
+                            android:padding="@dimen/text6">
+
+                            <!--<android.support.v7.widget.AppCompatTextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:fontFamily="@font/montserrat_regular"-->
+                                <!--android:text="@string/mob"-->
+                                <!--android:textColor="@color/text_title"-->
+                                <!--android:textSize="@dimen/texts13" />-->
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/txtphone_number"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/text_title"
+                                android:textSize="@dimen/texts16" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text20"
+                    android:background="@drawable/edittext_bg"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/text10">
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="6"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="@string/first_names"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/texts14" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="@string/middle_initialss"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/texts14" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/text10">
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/txtfirst_name"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="6"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/text_title"
+                                android:textSize="@dimen/texts13" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/txtmiddlename"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/text_title"
+                                android:textSize="@dimen/texts13" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/text10">
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="6"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="@string/last_names"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/texts14" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="@string/dobs"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/texts14" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/text10">
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/txtlastname"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="6"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/text_title"
+                                android:textSize="@dimen/texts13" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/txtdob"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/text_title"
+                                android:textSize="@dimen/texts13" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/text10">
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="6"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="@string/ethinicitys"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/texts14" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="@string/genders"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/texts14" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/text10">
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/txtethinicity"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="6"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/text_title"
+                                android:textSize="@dimen/texts13" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/txtgender"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/text_title"
+                                android:textSize="@dimen/texts13" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/text10">
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="@string/emails"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/texts14" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/text10">
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/txtemail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/text_title"
+                                android:textSize="@dimen/texts13" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text20"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="@dimen/text10">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="@string/roles"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/texts16" />
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spinnerCustom"
+                        style="@style/Widget.AppCompat.Spinner.Underlined"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/text15"
+                        android:drawSelectorOnTop="true"
+                        android:dropDownVerticalOffset="-53dp"
+                        android:spinnerMode="dropdown"
+                        android:theme="@style/Spinner" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/text30"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/reject"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:background="@drawable/gradients"
+                        android:elevation="@dimen/text5"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/text10"
+                        android:text="@string/reject"
+                        android:textColor="@color/btn_text"
+                        android:textSize="@dimen/texts16" />
+
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/approve"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text30"
+                        android:layout_marginLeft="@dimen/text30"
+                        android:layout_weight="5"
+                        android:background="@drawable/gradients"
+                        android:elevation="@dimen/text5"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/text10"
+                        android:text="@string/approve"
+                        android:textColor="@color/btn_text"
+                        android:textSize="@dimen/texts16" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

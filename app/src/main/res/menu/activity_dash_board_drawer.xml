@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/dashboard"
+            android:title="@string/dashboard" />
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_active"
+            android:icon="@drawable/active_user"
+            android:title="@string/cactiveuser" />
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_pending"
+            android:icon="@drawable/pending"
+            android:title="@string/pendings" />
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_reject"
+            android:icon="@drawable/ic_reject_candidate"
+            android:title="@string/rejects" />
+    </group>
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/logout" />
+    </group>
+
+</menu>

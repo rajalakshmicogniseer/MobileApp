@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@android:color/white">
+    <LinearLayout
+        android:layout_width="@dimen/text400"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="1dp"
+        android:gravity="center"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/text50">
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="fill_parent"
+                android:fontFamily="@font/montserrat_regular"
+                android:textAlignment="center"
+                android:textColor="@color/text_title"
+                android:layout_height="wrap_content"
+                android:text="@string/reason" />
+            <android.support.v7.widget.AppCompatEditText
+                android:layout_width="@dimen/text300"
+                android:id="@+id/reject"
+                android:textColor="@color/text_title"
+                android:layout_marginTop="@dimen/text15"
+                android:fontFamily="@font/montserrat_regular"
+                android:layout_height="@dimen/text150"
+                android:background="@drawable/edittext" />
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/dismiss"
+                android:layout_marginTop="@dimen/text15"
+                android:layout_width="@dimen/text150"
+                android:fontFamily="@font/montserrat_regular"
+                android:textColor="@color/btn_text"
+                android:background="@drawable/gradients"
+                android:layout_height="wrap_content"
+                android:text="@string/submit" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

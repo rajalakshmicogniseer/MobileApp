@@ -1,0 +1,127 @@
+<resources>
+    <string name="app_name">Lectrefy</string>
+
+    <!-- Login screen -->
+
+    <string name="email_ids">Email id</string>
+    <string name="text1">Lets get started now!</string>
+    <string name="text2">Or create an account if not registered yet</string>
+    <string name="login">Enter your Email Id</string>
+    <string name="item_password">Password</string>
+    <string name="password">Enter your Password</string>
+    <string name="phones">Enter your Phone Number</string>
+    <string name="loginbtn">Sign in</string>
+    <string name="forgot">Forgot Password?</string>
+    <string name="sigup">Signup?</string>
+
+    <!-- Register screen -->
+    <string name="start_journey"> Start your journey Today! </string>
+    <string name="already_user"> Or already a user login now </string>
+    <string name="first_name">Enter your Firstname </string>
+    <string name="first_names">First Name </string>
+    <string name="middle_initials"> Enter Your Middle Initials </string>
+    <string name="middle_initialss">Middle Initials</string>
+    <string name="last_name">Enter Your Lastname </string>
+    <string name="last_names">Last Name </string>
+    <string name="dob">Enter Your Date Of Birth</string>
+    <string name="dobs">Date Of Birth</string>
+    <string name="ethinicity">Select Your Ethinicity</string>
+    <string name="ethinicitys">Ethinicity</string>
+    <string name="gender">Select your Gender</string>
+    <string name="genders">Gender</string>
+    <string name="email">Enter your Email</string>
+    <string name="emails">Email Id</string>
+    <string name="phone_number">Enter your Phone Number </string>
+    <string name="phone_numbers">Phone Number </string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sigups">Signup</string>
+    <string name="login2">Login?</string>
+
+
+    <!-- Forgot screen -->
+    <string name="title">Forgot Password</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+
+
+    <!-- ValidateOtp screen -->
+    <string name="validate_otp">Validate OTP </string>
+    <string name="send_number">OTP Has Been Send to Your Register Mobile Number</string>
+    <string name="otp">Enter OTP</string>
+    <string name="resend">Resend OTP </string>
+
+    <!-- Resend password screen -->
+    <string name="reset_password">Reset Password</string>
+    <string name="new_password">New Password</string>
+    <string name="old_passwords">Enter your Old password</string>
+    <string name="save">Save</string>
+    <string name="newpassword">Please Enter Your New Password</string>
+    <string name="retype_password">Retype Password</string>
+
+    <!-- User Profile screen -->
+    <string name="edit">Edit</string>
+    <string name="logout">LOGOUT</string>
+    <string name="old_password">Old Password</string>
+    <string name="usertitle">My Profile</string>
+    <string name="edittitle">Edit My Profile </string>
+
+
+    <!-- Dashboard screen -->
+    <string name="high">HIGHLIGHTS</string>
+    <string name="activeuser">Active User</string>
+    <string name="pending">Pending Approvals</string>
+    <string name="login_id">User Id</string>
+    <string name="name">Name</string>
+    <string name="reason">Reason for Rejection</string>
+    <string name="roles">Role</string>
+    <string name="reject">Reject</string>
+    <string name="reject_list">Rejected List</string>
+    <string name="approve">Approve</string>
+    <string name="cactiveuser">ACTIVE USERS</string>
+    <string name="dashboard">DASHBOARD</string>
+    <string name="dash">Highlights</string>
+    <string name="pendings">PENDING APPROVALS</string>
+    <string name="rejects">REJECTED USER</string>
+    <string name="rejec">Rejected User</string>
+    <string name="profile">MY PROFILE</string>
+    <string name="reset">RESET PASSWORD</string>
+    <string name="pompt">Select</string>
+    <string name="mob">Phone Number</string>
+    <string name="userview">User Details</string>
+
+
+    <string name="invalid_first">Please Enter Your First Name</string>
+    <string name="invalid_dob">Please Select Your Date of Birth</string>
+    <string name="invalid_middle">Please Enter Your Middle Name</string>
+    <string name="invalid_last">Please Enter Your Last Name</string>
+    <string name="invalid_name">Please Enter a Valid Name</string>
+    <string name="invalid_otp">Please Enter a Valid OTP</string>
+
+    <string name="invalid_emaill">Please Enter Your Email</string>
+    <string name="invalid_email">Please Enter a Valid Email</string>
+    <string name="invalid_phoned">Please Enter a Valid Phone Number</string>
+    <string name="invalid_passl">Please Enter Your Password</string>
+    <string name="invalid_pass">Please Enter a Valid Password</string>
+    <string name="invalid_emails">This Email Has Already Exists</string>
+    <string name="invalid_mobile">This Phone No Has Already Exists</string>
+    <string name="invalid_confirm_email">Email Does Not Match</string>
+    <string name="invalid_old_password">Please Enter a Valid Password</string>
+    <string name="invalid_password">Password Must Contain 8 Characters Including Number and Special Character</string>
+    <string name="invalid_passwords">Invalid Password</string>
+    <string name="invalid_confirm_password">Password Does Not Match</string>
+    <string name="invalid_old_passwords">Old Password Does Not Match</string>
+    <string name="invalid_old_passempty">Please Enter your Old Password</string>
+    <string name="invalid_phone">Please Enter Your Phone Number</string>
+    <string name="invalid_phones">This Phone Number Has Already Exists</string>
+
+
+    <string name="please_wait">Please Wait…</string>
+    <string name="title_activity_dash_board">DashBoardActivity</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation Header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_user_profile">UserProfileActivity</string>
+</resources>
