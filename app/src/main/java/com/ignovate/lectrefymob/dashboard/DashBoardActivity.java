@@ -84,32 +84,30 @@ public class DashBoardActivity extends AppCompatActivity
         switch (itemId) {
             case R.id.nav_dashboard:
 
-                fragment = new DashBoardFragment();
+                fragment = DashBoardFragment.newInstance("","");
                 break;
             case R.id.nav_active:
 
-                fragment = new ActiveUserFragment();
+                fragment = ActiveUserFragment.newInstance("","");
                 break;
             case R.id.nav_pending:
 
-                fragment = new PendingApprovalsFragment();
+                fragment = PendingApprovalsFragment.newInstance("","");
                 break;
             case R.id.nav_reject:
-                fragment = new RejectUserFragment();
+                fragment = RejectUserFragment.newInstance("","");
                 break;
             case R.id.nav_logout:
                 session.logoutUser();
                 finish();
                 break;
         }
-
         //replacing the fragment
         if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_frame, fragment);
             ft.commit();
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }

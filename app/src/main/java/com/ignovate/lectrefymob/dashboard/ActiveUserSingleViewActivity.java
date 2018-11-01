@@ -1,11 +1,14 @@
 package com.ignovate.lectrefymob.dashboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.ignovate.lectrefymob.R;
@@ -34,7 +37,7 @@ public class ActiveUserSingleViewActivity extends AppCompatActivity {
         apiInterface = API.getClient().create(ApiInterface.class);
         initialToolbar();
         initialView();
-        webcallApi();
+       // webcallApi();
     }
 
     private void initialToolbar() {
@@ -59,6 +62,12 @@ public class ActiveUserSingleViewActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        webcallApi();
+    }
+
     private void webcallApi() {
         try {
             if (ConnectivityReceiver.isConnected()) {
@@ -70,12 +79,10 @@ public class ActiveUserSingleViewActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<RegisterReqModel> call, Response<RegisterReqModel> response) {
                         Log.e("RESD", response.isSuccessful() + "");
+                        LoadingIndicator.dismissLoading();
                         if (response.isSuccessful()) {
-                            LoadingIndicator.dismissLoading();
-                            //  mRoles.setText(response.body().getRole());
                             mName.setText(response.body().getFirstName());
                             mPhone.setText(response.body().getPhone());
-
 
                             mFirst.setText(response.body().getFirstName());
                             mLast.setText(response.body().getLastName());
@@ -85,6 +92,8 @@ public class ActiveUserSingleViewActivity extends AppCompatActivity {
                             mRole.setText(response.body().getRole());
                             mEthinicity.setText(response.body().getEthinicity());
                             mEmail.setText(response.body().getEmail());
+                        }else {
+
                         }
                     }
 
@@ -93,7 +102,7 @@ public class ActiveUserSingleViewActivity extends AppCompatActivity {
 
                     }
                 });
-            }else {
+            } else {
                 LoadingIndicator.alertDialog(ActiveUserSingleViewActivity.this, ConnectivityReceiver.isConnected());
             }
         } catch (Exception e) {
@@ -102,10 +111,48 @@ public class ActiveUserSingleViewActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
+        tb.inflateMenu(R.menu.user_profile);
+        tb.setOnMenuItemClickListener(
+                new Toolbar.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        return onOptionsItemSelected(item);
+                    }
+                });
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.edit:
+                if (ConnectivityReceiver.isConnected()) {
+                    String id = getIntent().getExtras().getString("ID");
+                    Intent intent = new Intent(ActiveUserSingleViewActivity.this, PendingSingleViewActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("ID", id);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                } else {
+                    LoadingIndicator.alertDialog(ActiveUserSingleViewActivity.this, ConnectivityReceiver.isConnected());
+                }
+                break;
+            default:
+                break;
+        }
+
+        return true;
+    }
+
+
     private void initialView() {
         try {
             mName = (AppCompatTextView) findViewById(R.id.txtname);
-           // mRoles = (AppCompatTextView) findViewById(R.id.txtroles);
+            // mRoles = (AppCompatTextView) findViewById(R.id.txtroles);
             mPhone = (AppCompatTextView) findViewById(R.id.txtphone_number);
 
 

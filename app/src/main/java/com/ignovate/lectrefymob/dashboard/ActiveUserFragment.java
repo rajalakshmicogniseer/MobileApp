@@ -98,37 +98,40 @@ public class ActiveUserFragment extends Fragment {
                 calls.enqueue(new Callback<ArrayList<RegisterReqModel>>() {
                     @Override
                     public void onResponse(Call<ArrayList<RegisterReqModel>> call, Response<ArrayList<RegisterReqModel>> response) {
-
-                        userModels.clear();
-                        for (int i = 0; i < response.body().size(); i++) {
-                            if ((response.body().get(i).getStatus()).equals("A")) {
-                                LoadingIndicator.dismissLoading();
-                                RegisterReqModel re = new RegisterReqModel();
-                                re.setUserId(response.body().get(i).getUserId());
-                                re.setFirstName(response.body().get(i).getFirstName());
-                                re.setMiddleName(response.body().get(i).getMiddleName());
-                                re.setLastName(response.body().get(i).getLastName());
-                                re.setPhone(response.body().get(i).getPhone());
-                                re.setRole(response.body().get(i).getRole());
-                                re.setEthinicity(response.body().get(i).getEthinicity());
-                                userModels.add(re);
-                            }
-                        }
-                        ActiveUserAdapter adapter = new ActiveUserAdapter(getActivity(), userModels, new setOnItemClick() {
-                            @Override
-                            public void onClick(String userid) {
-                                if (ConnectivityReceiver.isConnected()) {
-                                    Intent intent = new Intent(getActivity(), ActiveUserSingleViewActivity.class);
-                                    Bundle bundle = new Bundle();
-                                    bundle.putString("ID", userid);
-                                    intent.putExtras(bundle);
-                                    startActivity(intent);
-                                }else {
-                                    LoadingIndicator.alertDialog(getActivity(), ConnectivityReceiver.isConnected());
+                        LoadingIndicator.dismissLoading();
+                        if (response.isSuccessful()) {
+                            userModels.clear();
+                            for (int i = 0; i < response.body().size(); i++) {
+                                if ((response.body().get(i).getStatus()).equals("A")) {
+                                    RegisterReqModel re = new RegisterReqModel();
+                                    re.setUserId(response.body().get(i).getUserId());
+                                    re.setFirstName(response.body().get(i).getFirstName());
+                                    re.setMiddleName(response.body().get(i).getMiddleName());
+                                    re.setLastName(response.body().get(i).getLastName());
+                                    re.setPhone(response.body().get(i).getPhone());
+                                    re.setRole(response.body().get(i).getRole());
+                                    re.setEthinicity(response.body().get(i).getEthinicity());
+                                    userModels.add(re);
                                 }
                             }
-                        });
-                        rv.setAdapter(adapter);
+                            ActiveUserAdapter adapter = new ActiveUserAdapter(getActivity(), userModels, new setOnItemClick() {
+                                @Override
+                                public void onClick(String userid) {
+                                    if (ConnectivityReceiver.isConnected()) {
+                                        Intent intent = new Intent(getActivity(), ActiveUserSingleViewActivity.class);
+                                        Bundle bundle = new Bundle();
+                                        bundle.putString("ID", userid);
+                                        intent.putExtras(bundle);
+                                        startActivity(intent);
+                                    } else {
+                                        LoadingIndicator.alertDialog(getActivity(), ConnectivityReceiver.isConnected());
+                                    }
+                                }
+                            });
+                            rv.setAdapter(adapter);
+                        }else {
+
+                        }
                     }
 
                     @Override

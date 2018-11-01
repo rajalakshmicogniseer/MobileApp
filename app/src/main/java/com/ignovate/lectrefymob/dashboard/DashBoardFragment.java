@@ -56,11 +56,10 @@ public class DashBoardFragment extends Fragment implements View.OnClickListener 
     private AppCompatTextView mActive;
     private AppCompatTextView mPending;
     private AppCompatTextView mReject;
-    private int lActive;
-    private int lpending;
+
 
     private AppCompatImageView mLogout;
-    private SessionManager session;
+
     private DashBoardActivity activity;
     private setTitle settitle;
 
@@ -79,7 +78,6 @@ public class DashBoardFragment extends Fragment implements View.OnClickListener 
     // TODO: Rename and change types and number of parameters
     public static DashBoardFragment newInstance(String param1, String param2) {
         DashBoardFragment fragment = new DashBoardFragment();
-
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -113,7 +111,6 @@ public class DashBoardFragment extends Fragment implements View.OnClickListener 
         bActive.setOnClickListener(this);
         bPending.setOnClickListener(this);
         breject.setOnClickListener(this);
-        ;
         return view;
     }
 
@@ -134,8 +131,8 @@ public class DashBoardFragment extends Fragment implements View.OnClickListener 
                 calls.enqueue(new Callback<ArrayList<RegisterReqModel>>() {
                     @Override
                     public void onResponse(Call<ArrayList<RegisterReqModel>> call, Response<ArrayList<RegisterReqModel>> response) {
+                        LoadingIndicator.dismissLoading();
                         if (response.isSuccessful()) {
-                            LoadingIndicator.dismissLoading();
                             int a = 0;
                             int b = 0;
                             int c = 0;
@@ -173,7 +170,6 @@ public class DashBoardFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onAttach(Context context) {
-        session = new SessionManager(getActivity());
         apiInterface = API.getClient().create(ApiInterface.class);
         activity = (DashBoardActivity) context;
 

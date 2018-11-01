@@ -9,6 +9,7 @@ import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,6 +17,9 @@ import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.ignovate.lectrefymob.R;
 import com.ignovate.lectrefymob.dashboard.PendingSingleViewActivity;
 import com.ignovate.lectrefymob.interfaces.ApiInterface;
@@ -25,6 +29,7 @@ import com.ignovate.lectrefymob.model.RegisterReqModel;
 import com.ignovate.lectrefymob.model.Success;
 import com.ignovate.lectrefymob.ui.CustomEditText;
 import com.ignovate.lectrefymob.utils.LoadingIndicator;
+import com.ignovate.lectrefymob.utils.Pattern;
 import com.ignovate.lectrefymob.webservice.API;
 import com.ignovate.lectrefymob.webservice.ConnectivityReceiver;
 
@@ -57,16 +62,20 @@ public class EditUserActivity extends AppCompatActivity implements DrawableClick
     private String sEthir;
     private String sGender;
     private RegisterReqModel list;
+    private AwesomeValidation aV;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edituser);
         apiInterface = API.getClient().create(ApiInterface.class);
+        aV = new AwesomeValidation(ValidationStyle.BASIC);
         initializeViews();
+        validation();
         initialToolbar();
         initialWebCallApi();
     }
+
 
     private void initialToolbar() {
         try {
@@ -115,7 +124,7 @@ public class EditUserActivity extends AppCompatActivity implements DrawableClick
 
                     }
                 });
-            }else {
+            } else {
                 LoadingIndicator.alertDialog(EditUserActivity.this, ConnectivityReceiver.isConnected());
             }
         } catch (Exception e) {
@@ -221,6 +230,13 @@ public class EditUserActivity extends AppCompatActivity implements DrawableClick
         }
     }
 
+    private void validation() {
+        aV.addValidation(this, R.id.input_firstname, RegexTemplate.NOT_EMPTY, R.string.invalid_first);
+        aV.addValidation(this, R.id.input_phoneno, Pattern.MOBILE_VALIDE, R.string.invalid_phoned);
+        aV.addValidation(this, R.id.input_email_id, Patterns.EMAIL_ADDRESS, R.string.invalid_emaill);
+
+    }
+
     @Override
     public void onClick(DrawablePosition target) {
         switch (target) {
@@ -264,50 +280,53 @@ public class EditUserActivity extends AppCompatActivity implements DrawableClick
 
     private void updateUserInfo() {
         try {
-            RegisterReqModel registerReqModel = new RegisterReqModel();
-            registerReqModel.setUserId(list.getUserId());
-            registerReqModel.setFirstName(mFirst.getText().toString().trim());
-            registerReqModel.setLastName(mLast.getText().toString().trim());
-            registerReqModel.setMiddleName(mMiddle.getText().toString().trim());
-            registerReqModel.setPhone(mPhone.getText().toString().trim());
-            registerReqModel.setEmail(mEmail.getText().toString().trim());
-            registerReqModel.setRole(mRole.getText().toString().trim());//et_role.getText().toString()
-            registerReqModel.setDateOfBirth(mDob.getText().toString().trim());//DOB.getText().toString()
-            registerReqModel.setGender(sGender);
-            registerReqModel.setEthinicity(sEthir);
-            registerReqModel.setPassword(list.getPassword());
-            registerReqModel.setStatus(list.getStatus());
-            registerReqModel.setRegion(list.getRegion());
-            registerReqModel.setCreatedBy(list.getCreatedBy());
-            registerReqModel.setModifiedBy(list.getModifiedBy());
-            registerReqModel.setFcm(list.getFcm());
-            registerReqModel.setWorkingDays(list.getWorkingDays());
-            registerReqModel.setWorkHoursStart(list.getWorkHoursStart());
-            registerReqModel.setWorkHoursEnd(list.getWorkHoursEnd());
-            registerReqModel.setAge(list.getAge());
-            registerReqModel.setContract(list.getContract());
-            LoadingIndicator.dismissLoading();
-            LoadingIndicator.showLoading(EditUserActivity.this, getString(R.string.please_wait));
-            String id = getIntent().getExtras().getString("ID");
-            Call<Success> call = apiInterface.getUserRoleUpdate(id, registerReqModel);
-            call.enqueue(new Callback<Success>() {
-                @Override
-                public void onResponse(Call<Success> call, Response<Success> response) {
+            if (aV.validate()) {
+                RegisterReqModel registerReqModel = new RegisterReqModel();
+                registerReqModel.setUserId(list.getUserId());
+                registerReqModel.setFirstName(mFirst.getText().toString().trim());
+                registerReqModel.setLastName(mLast.getText().toString().trim());
+                registerReqModel.setMiddleName(mMiddle.getText().toString().trim());
+                registerReqModel.setPhone(mPhone.getText().toString().trim());
+                registerReqModel.setEmail(mEmail.getText().toString().trim());
+                registerReqModel.setRole(mRole.getText().toString().trim());//et_role.getText().toString()
+                registerReqModel.setDateOfBirth(mDob.getText().toString().trim());//DOB.getText().toString()
+                registerReqModel.setGender(sGender);
+                registerReqModel.setEthinicity(sEthir);
+                registerReqModel.setPassword(list.getPassword());
+                registerReqModel.setStatus(list.getStatus());
+                registerReqModel.setRegion(list.getRegion());
+                registerReqModel.setCreatedBy(list.getCreatedBy());
+                registerReqModel.setModifiedBy(list.getModifiedBy());
+                registerReqModel.setFcm(list.getFcm());
+                registerReqModel.setWorkingDays(list.getWorkingDays());
+                registerReqModel.setWorkHoursStart(list.getWorkHoursStart());
+                registerReqModel.setWorkHoursEnd(list.getWorkHoursEnd());
+                registerReqModel.setAge(list.getAge());
+                registerReqModel.setContract(list.getContract());
+                LoadingIndicator.dismissLoading();
+                LoadingIndicator.showLoading(EditUserActivity.this, getString(R.string.please_wait));
+                String id = getIntent().getExtras().getString("ID");
+                Call<Success> call = apiInterface.getUserRoleUpdate(id, registerReqModel);
+                call.enqueue(new Callback<Success>() {
+                    @Override
+                    public void onResponse(Call<Success> call, Response<Success> response) {
 
-                    if (response.isSuccessful()) {
-                        LoadingIndicator.dismissLoading();
-                        finish();
+                        if (response.isSuccessful()) {
+                            LoadingIndicator.dismissLoading();
+                            finish();
+                        }
+
                     }
 
-                }
+                    @Override
+                    public void onFailure(Call<Success> call, Throwable t) {
 
-                @Override
-                public void onFailure(Call<Success> call, Throwable t) {
-
-                }
-            });
+                    }
+                });
+            }
         } catch (Exception e) {
             Log.e("Error", e.getMessage());
         }
+
     }
 }

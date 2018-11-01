@@ -7,6 +7,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:editTextStyle">@style/TextLabel</item>
         <item name="android:windowBackground">@drawable/bg</item>
+        <item name="actionMenuTextColor">@color/white</item>
 
 
     </style>

@@ -70,6 +70,7 @@
     <string name="high">HIGHLIGHTS</string>
     <string name="activeuser">Active User</string>
     <string name="pending">Pending Approvals</string>
+    <string name="otp_wrong">Wrong OTP Please try again</string>
     <string name="login_id">User Id</string>
     <string name="name">Name</string>
     <string name="reason">Reason for Rejection</string>

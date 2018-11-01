@@ -124,7 +124,7 @@ public class ValidateOtpActivity extends AppCompatActivity implements View.OnCli
                     call.enqueue(new Callback<Success>() {
                         @Override
                         public void onResponse(Call<Success> call, Response<Success> response) {
-                            if (response.isSuccessful() && response.body().code.equals("SUCCESS")) {
+                            if (response.isSuccessful() && response.body().message.equals("SUCCESS")) {
                                 boolean re = intent.getBooleanExtra("BOOL", false);
                                 if (re) {
                                     RegisterReqModel ob = (RegisterReqModel) intent.getSerializableExtra("OBJECT");
@@ -156,6 +156,10 @@ public class ValidateOtpActivity extends AppCompatActivity implements View.OnCli
                                     intent1.putExtra("USERID", user_id);
                                     startActivity(intent1);
                                 }
+                            } else {
+                                LoadingIndicator.dismissLoading();
+                                mOtp.setError(getString(R.string.otp_wrong));
+                                mOtp.requestFocus();
                             }
                         }
 

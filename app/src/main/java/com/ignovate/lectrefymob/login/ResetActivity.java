@@ -7,6 +7,7 @@ import android.support.v7.widget.AppCompatEditText;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
@@ -140,12 +141,15 @@ public class ResetActivity extends AppCompatActivity implements View.OnClickList
                                 Intent intent = new Intent(ResetActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 finish();
+                            }else {
+                                LoadingIndicator.dismissLoading();
+                                Toast.makeText(ResetActivity.this,response.body().message,Toast.LENGTH_LONG).show();
                             }
                         }
 
                         @Override
                         public void onFailure(Call<Success> call, Throwable t) {
-
+                            LoadingIndicator.dismissLoading();
                         }
                     });
 
